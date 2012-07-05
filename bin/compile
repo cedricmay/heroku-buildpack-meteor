@@ -30,7 +30,9 @@ build() {
     mkdir -p $BUILD_DIR/.meteor/local/build
     tar -zxf $CACHE_DIR/bundle.tar.gz --strip-components 1 -C $BUILD_DIR/.meteor/local/build
     rm $CACHE_DIR/bundle.tar.gz
-    npm i
+    if [ -f "./package.json" ] ; then
+      npm i
+    fi
   )
 }
 
